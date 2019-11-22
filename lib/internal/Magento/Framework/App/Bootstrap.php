@@ -383,7 +383,7 @@ class Bootstrap
         $handler = new ErrorHandler();
         set_error_handler([$handler, 'handler']);
     }
-    
+
     /**
      * Getter for error code
      *

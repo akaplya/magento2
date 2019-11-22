@@ -501,11 +501,11 @@ class Processor
             $this->getReportDirNestingLevel($this->reportId),
             $this->reportId
         );
-        $reportDirName = dirname($this->_reportFile);
-        if (!file_exists($reportDirName)) {
-            @mkdir($reportDirName, 0777, true);
-        }
-        $this->_setReportData($reportData);
+//        $reportDirName = dirname($this->_reportFile);
+//        if (!file_exists($reportDirName)) {
+//            @mkdir($reportDirName, 0777, true);
+//        }
+//        $this->_setReportData($reportData);
 
         @file_put_contents($this->_reportFile, $this->serializer->serialize($reportData). PHP_EOL);
 
