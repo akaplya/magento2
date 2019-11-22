@@ -507,7 +507,7 @@ class Processor
 //        }
 //        $this->_setReportData($reportData);
 
-        @file_put_contents($this->_reportFile, $this->serializer->serialize($reportData). PHP_EOL);
+//        @file_put_contents($this->_reportFile, $this->serializer->serialize($reportData). PHP_EOL);
 
         if (isset($reportData['skin']) && self::DEFAULT_SKIN != $reportData['skin']) {
             $this->_setSkin($reportData['skin']);
