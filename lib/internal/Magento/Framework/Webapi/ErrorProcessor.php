@@ -314,14 +314,16 @@ class ErrorProcessor
     /**
      * Log information about fatal error.
      *
-     * @param string $reportData
+     * @param $reportData
      * @return string
+     * @throws \Exception
      */
     protected function _saveFatalErrorReport($reportData)
     {
-        $this->directoryWrite->create('report/api');
-        $reportId = abs((int)(microtime(true) * random_int(100, 1000)));
-        $this->directoryWrite->writeFile('report/api/' . $reportId, $this->serializer->serialize($reportData));
+//        $this->directoryWrite->create('report/api');
+        $reportId = (string)abs((int)(microtime(true) * random_int(100, 1000)));
+//        $this->directoryWrite->writeFile('report/api/' . $reportId, $this->serializer->serialize($reportData));
+        $this->_logger->critical($this->serializer->serialize( $reportId . ' ' . $reportData));
         return $reportId;
     }
 }

@@ -153,6 +153,9 @@ class Http implements \Magento\Framework\AppInterface
      */
     public function catchException(Bootstrap $bootstrap, \Exception $exception): bool
     {
+        /** @var \Psr\Log\LoggerInterface $logger */
+        $logger = $this->_objectManager->get(\Psr\Log\LoggerInterface::class);
+        $logger->error($exception, ['bootstrap' => $bootstrap]);
         return $this->exceptionHandler->handle($bootstrap, $exception, $this->_response, $this->_request);
     }
 }
